@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presto Piano Studio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap');
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+        .landing {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #000, #1a1a1a);
+            position: relative;
+            overflow: hidden;
+        }
+        .content {
+            z-index: 1;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 5rem;
+            margin: 0 0 20px 0;
+            letter-spacing: 10px;
+            text-transform: uppercase;
+            font-weight: 900;
+            background: linear-gradient(45deg, #fff, #888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
+        }
+        .tagline {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 5px;
+            margin-bottom: 40px;
+            opacity: 0.8;
+        }
+        .piano-keys {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background-image: linear-gradient(90deg, #fff 0%, #fff 61%, #000 61%, #000 66%, #fff 66%, #fff 73%, #000 73%, #000 78%, #fff 78%, #fff 83%, #000 83%, #000 88%, #fff 88%, #fff 100%);
+            opacity: 0.2;
+        }
+        nav {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 2;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 300;
+            transition: color 0.3s ease;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+        }
+        nav ul li a:hover {
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="landing">
+        <nav>
+            <ul>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#lessons">LESSONS</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <h1>PRESTO PIANO</h1>
+            <div class="tagline">MASTERING KEYS, UNLOCKING POTENTIAL</div>
+        </div>
+        <div class="piano-keys"></div>
+    </div>
+</body>
+</html>

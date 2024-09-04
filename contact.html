@@ -163,8 +163,10 @@
     <script type="text/javascript">
         window.onload = function() {
             document.getElementById('contact-form').addEventListener('submit', function(event) {
-                event.preventDefault();
-                emailjs.sendForm('contact_service', 'contact_form', this)
+                event.preventDefault();  // Prevent form submission from reloading the page
+
+        // Use your EmailJS Service ID and Template ID here
+                emailjs.sendForm('service_idipupf', 'template_w9fwd4j', this)
                     .then(function() {
                         console.log('SUCCESS!');
                         document.getElementById('statusMessage').innerHTML = '<p style="color:green;">Message sent successfully!</p>';
@@ -172,8 +174,10 @@
                     }, function(error) {
                         console.log('FAILED...', error);
                         document.getElementById('statusMessage').innerHTML = '<p style="color:red;">Failed to send message. Please try again later.</p>';
-                    });
             });
+    });
+};
+
         }
     </script>
 </head>

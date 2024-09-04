@@ -148,32 +148,36 @@
             }
         }
     </style>
-</head>
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- Include EmailJS Script -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
-            // https://dashboard.emailjs.com/admin/account
             emailjs.init({
-              publicKey: "6gRzC-vfOkEDtTY0k",
+              publicKey: "6gRzC-vfOkEDtTY0k",  // Replace with your actual public key
             });
         })();
     </script>
+
+    <!-- JavaScript for sending the form data using EmailJS -->
     <script type="text/javascript">
         window.onload = function() {
             document.getElementById('contact-form').addEventListener('submit', function(event) {
                 event.preventDefault();
-                // these IDs from the previous steps
                 emailjs.sendForm('contact_service', 'contact_form', this)
-                    .then(() => {
+                    .then(function() {
                         console.log('SUCCESS!');
-                    }, (error) => {
+                        document.getElementById('statusMessage').innerHTML = '<p style="color:green;">Message sent successfully!</p>';
+                        document.getElementById('contact-form').reset();  // Reset the form after submission
+                    }, function(error) {
                         console.log('FAILED...', error);
+                        document.getElementById('statusMessage').innerHTML = '<p style="color:red;">Failed to send message. Please try again later.</p>';
                     });
             });
         }
     </script>
-    
+</head>
+
 <body>
     <div class="page-container">
         <nav>
@@ -189,19 +193,23 @@
             <h2>Contact Us</h2>
             <p>We'd love to hear from you! Whether you're interested in lessons or have any questions, please don't hesitate to get in touch.</p>
             
-            <form action="#" method="POST">
+            <!-- Add an ID to the form and update the names to match EmailJS placeholders -->
+            <form id="contact-form">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" required> <!-- 'name' matches {{name}} in your template -->
                 
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" required> <!-- 'email' matches {{email}} in your template -->
                 
                 <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
+                <textarea id="message" name="message" rows="5" required></textarea> <!-- 'message' matches {{message}} in your template -->
                 
                 <button type="submit">Send Message</button>
             </form>
             
+            <!-- Placeholder for success/error messages -->
+            <div id="statusMessage"></div>
+
             <div class="contact-info">
                 <h3>Location</h3>
                 <p>Highland Park, Pittsburgh, PA</p>

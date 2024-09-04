@@ -22,6 +22,7 @@
             flex-direction: column;
             background: linear-gradient(135deg, #121212, #2c2c2c);
             padding: 20px;
+            position: relative;
         }
         
         .content {
@@ -137,6 +138,16 @@
             margin-bottom: 5px;
         }
         
+        .copyright {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+
         @media (max-width: 768px) {
             h1 { font-size: 2rem; }
             nav ul li {
@@ -148,47 +159,16 @@
             }
         }
     </style>
-
-    <!-- Include EmailJS Script -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function() {
-            emailjs.init({
-              publicKey: "6gRzC-vfOkEDtTY0k",  // Replace with your actual public key
-            });
-        })();
-    </script>
-
-    <!-- JavaScript for sending the form data using EmailJS -->
-    <script type="text/javascript">
-        window.onload = function() {
-            document.getElementById('contact-form').addEventListener('submit', function(event) {
-                event.preventDefault();  // Prevent form submission from reloading the page
-
-        // Use your EmailJS Service ID and Template ID here
-                emailjs.sendForm('service_idipupf', 'template_w9fwd4j', this)
-                    .then(function() {
-                        console.log('SUCCESS!');
-                        document.getElementById('statusMessage').innerHTML = '<p style="color:green;">Message sent successfully!</p>';
-                        document.getElementById('contact-form').reset();  // Reset the form after submission
-                    }, function(error) {
-                        console.log('FAILED...', error);
-                        document.getElementById('statusMessage').innerHTML = '<p style="color:red;">Failed to send message. Please try again later.</p>';
-                    });
-            });
-
-        };
-    </script>
 </head>
 
 <body>
     <div class="page-container">
         <nav>
             <ul>
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="about.html">ABOUT</a></li>
-                <li><a href="lessons.html">LESSONS</a></li>
-                <li><a href="contact.html">CONTACT</a></li>
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#lessons">LESSONS</a></li>
+                <li><a href="#contact">CONTACT</a></li>
             </ul>
         </nav>
         <div class="content">
@@ -196,21 +176,19 @@
             <h2>Contact Us</h2>
             <p>We'd love to hear from you! Whether you're interested in lessons or have any questions, please don't hesitate to get in touch.</p>
             
-            <!-- Add an ID to the form and update the names to match EmailJS placeholders -->
             <form id="contact-form">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required> <!-- 'name' matches {{name}} in your template -->
+                <input type="text" id="name" name="name" required>
                 
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required> <!-- 'email' matches {{email}} in your template -->
+                <input type="email" id="email" name="email" required>
                 
                 <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="5" required></textarea> <!-- 'message' matches {{message}} in your template -->
+                <textarea id="message" name="message" rows="5" required></textarea>
                 
                 <button type="submit">Send Message</button>
             </form>
             
-            <!-- Placeholder for success/error messages -->
             <div id="statusMessage"></div>
 
             <div class="contact-info">
@@ -224,6 +202,7 @@
                 <p>(412) 251-7219</p>
             </div>
         </div>
+        <div class="copyright">© 2024 Presto Piano Studio, LLC. All rights reserved.</div>
     </div>
 </body>
 </html>

@@ -5,132 +5,188 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Presto Piano Studio</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap');
-
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@300;400;700&display=swap');
+        
         body, html {
             margin: 0;
             padding: 0;
-            font-family: 'Montserrat', sans-serif;
-            background-color: #000;
+            height: 100%;
+            font-family: 'Raleway', sans-serif;
+            background-color: #121212;
             color: #fff;
         }
-        .container {
+        
+        .page-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, #121212, #2c2c2c);
+            padding: 20px;
+        }
+        
+        .content {
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
+            flex-grow: 1;
         }
-        header {
-            text-align: center;
-            padding: 40px 0;
-            background: linear-gradient(45deg, #000, #1a1a1a);
-        }
+        
         h1 {
+            font-family: 'Playfair Display', serif;
             font-size: 3rem;
-            margin: 0;
-            letter-spacing: 5px;
+            margin: 0 0 20px 0;
+            letter-spacing: 8px;
             text-transform: uppercase;
-            font-weight: 900;
-            background: linear-gradient(45deg, #fff, #888);
+            background: linear-gradient(45deg, #fff, #d4af37);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            text-align: center;
         }
+        
         nav {
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 10px 0;
+            align-self: flex-end;
+            margin-bottom: 20px;
         }
+        
         nav ul {
             list-style-type: none;
             padding: 0;
+            margin: 0;
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
         }
+        
         nav ul li {
-            margin: 0 15px;
+            margin-left: 20px;
         }
+        
         nav ul li a {
             text-decoration: none;
             color: #fff;
-            font-weight: 300;
-            transition: color 0.3s ease;
-            font-size: 1rem;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
             letter-spacing: 2px;
+            padding: 5px 10px;
+            border: 1px solid transparent;
         }
+        
         nav ul li a:hover {
-            color: #888;
+            color: #d4af37;
+            border-color: #d4af37;
         }
+        
         h2 {
             font-size: 2rem;
             margin-top: 40px;
             border-bottom: 2px solid #333;
             padding-bottom: 10px;
+            color: #d4af37;
         }
+        
         form {
             margin-top: 20px;
         }
+        
         label {
             display: block;
             margin-top: 20px;
+            color: #d4af37;
         }
+        
         input, textarea {
             width: 100%;
             padding: 10px;
             margin-top: 5px;
-            background-color: #111;
+            background-color: rgba(255, 255, 255, 0.1);
             border: 1px solid #333;
             color: #fff;
+            border-radius: 4px;
         }
+        
         button {
-            background-color: #333;
-            color: #fff;
+            background-color: #d4af37;
+            color: #121212;
             border: none;
             padding: 10px 20px;
             margin-top: 20px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
+            font-weight: 700;
+            letter-spacing: 2px;
+            border-radius: 30px;
+            text-transform: uppercase;
         }
+        
         button:hover {
-            background-color: #555;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+        
+        .contact-info {
+            margin-top: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 5px;
+        }
+        
+        .contact-info h3 {
+            color: #d4af37;
+            margin-top: 20px;
+            margin-bottom: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            nav ul li {
+                margin-left: 10px;
+            }
+            nav ul li a {
+                font-size: 0.9rem;
+                padding: 3px 6px;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Presto Piano Studio</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="about.html">ABOUT</a></li>
-            <li><a href="lessons.html">LESSONS</a></li>
-            <li><a href="contact.html">CONTACT</a></li>
-        </ul>
-    </nav>
-    <div class="container">
-        <h2>Contact Us</h2>
-        <p>We'd love to hear from you! Whether you're interested in lessons or have any questions, please don't hesitate to get in touch.</p>
-        
-        <form action="#" method="POST">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+    <div class="page-container">
+        <nav>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="lessons.html">LESSONS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <h1>Presto Piano Studio</h1>
+            <h2>Contact Us</h2>
+            <p>We'd love to hear from you! Whether you're interested in lessons or have any questions, please don't hesitate to get in touch.</p>
             
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <form action="#" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                
+                <button type="submit">Send Message</button>
+            </form>
             
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-            
-            <button type="submit">Send Message</button>
-        </form>
-        
-        <div class="contact-info">
-            <h3>Location</h3>
-            <p>Squirrel Hill neighborhood, Pittsburgh, PA</p>
-            
-            <h3>Email</h3>
-            <p>info@prestopianostudio.com</p>
-            
-            <h3>Phone</h3>
-            <p>(412) 555-0123</p>
+            <div class="contact-info">
+                <h3>Location</h3>
+                <p>Highland Park, Pittsburgh, PA</p>
+                
+                <h3>Email</h3>
+                <p>info@prestopianostudio.com</p>
+                
+                <h3>Phone</h3>
+                <p>(412) 555-0123</p>
+            </div>
         </div>
     </div>
 </body>

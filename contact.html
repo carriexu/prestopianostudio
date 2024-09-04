@@ -159,6 +159,38 @@
             }
         }
     </style>
+    
+    <!-- Include EmailJS Script -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init({
+              publicKey: "6gRzC-vfOkEDtTY0k",  // Replace with your actual public key
+            });
+        })();
+    </script>
+
+    <!-- JavaScript for sending the form data using EmailJS -->
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();  // Prevent form submission from reloading the page
+
+        // Use your EmailJS Service ID and Template ID here
+                emailjs.sendForm('service_idipupf', 'template_w9fwd4j', this)
+                    .then(function() {
+                        console.log('SUCCESS!');
+                        document.getElementById('statusMessage').innerHTML = '<p style="color:green;">Message sent successfully!</p>';
+                        document.getElementById('contact-form').reset();  // Reset the form after submission
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                        document.getElementById('statusMessage').innerHTML = '<p style="color:red;">Failed to send message. Please try again later.</p>';
+                    });
+            });
+
+        };
+    </script>
+    
 </head>
 
 <body>

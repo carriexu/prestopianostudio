@@ -22,6 +22,7 @@
             flex-direction: column;
             background: linear-gradient(135deg, #121212, #2c2c2c);
             padding: 20px;
+            position: relative;
         }
         
         header {
@@ -103,6 +104,16 @@
             color: #d4af37;
         }
 
+        .copyright {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+
         @media (max-width: 768px) {
             h1 { font-size: 2rem; }
             nav ul li {
@@ -119,10 +130,10 @@
     <div class="page-container">
         <nav>
             <ul>
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="about.html">ABOUT</a></li>
-                <li><a href="lessons.html">LESSONS</a></li>
-                <li><a href="contact.html">CONTACT</a></li>
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#lessons">LESSONS</a></li>
+                <li><a href="#contact">CONTACT</a></li>
             </ul>
         </nav>
         <header>
@@ -140,6 +151,7 @@
                 <p>In addition to his private studio, Jimmy is an active educator in the Pittsburgh music community. He teaches for Carnegie Mellon University and the Ellis School, showcasing his commitment to music education at various levels. Jimmy's expertise extends beyond teaching. He is also a skilled piano tuner, providing his services to Carnegie Mellon University, Chatham University, and over 550 private clients.</p>
             </div>
         </div>
+        <div class="copyright">© 2024 Presto Piano Studio, LLC. All rights reserved.</div>
     </div>
 </body>
 </html>

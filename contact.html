@@ -242,7 +242,7 @@
 
                 emailjs.sendForm('service_idipupf', 'template_w9fwd4j', this)
                     .then(function() {
-                        document.getElementById('statusMessage').innerHTML = '<p style="color: #90EE90;">Message sent successfully! We will respond within 1-2 business days.</p>';
+                        document.getElementById('statusMessage').innerHTML = '<p style="color: #90EE90;">Message sent successfully!</p>';
                         document.getElementById('contact-form').reset();
                     }, function(error) {
                         document.getElementById('statusMessage').innerHTML = '<p style="color: #FFB6C1;">Failed to send message. Please try again later.</p>';
@@ -265,7 +265,7 @@
         <div class="content">
             <h1>Presto Piano Studio</h1>
             <h2 style="text-align: center; color: #d4af37;">Contact Us</h2>
-            <p style="text-align: center;">Thank you for your interest in Presto Piano Studio! To help determine if we're the right fit for you, please complete the following questionnaire:</p>
+            <p style="text-align: center;">Thank you for your interest in Presto Piano Studio! To help us determine if we're the right fit, please complete the following questionnaire:</p>
             
             <form id="contact-form">
                 <div class="form-section">

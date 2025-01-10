@@ -7,6 +7,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@300;400;700&display=swap');
         
+        /* Existing styles */
         body, html {
             margin: 0;
             padding: 0;
@@ -31,7 +32,8 @@
             padding: 20px;
             flex-grow: 1;
         }
-        
+
+        /* Header styles */
         h1 {
             font-family: 'Playfair Display', serif;
             font-size: 3rem;
@@ -44,7 +46,8 @@
             text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
             text-align: center;
         }
-        
+
+        /* Navigation styles */
         nav {
             align-self: flex-end;
             margin-bottom: 20px;
@@ -77,40 +80,116 @@
             color: #d4af37;
             border-color: #d4af37;
         }
-        
-        h2 {
-            font-size: 2rem;
-            margin-top: 40px;
-            border-bottom: 2px solid #333;
-            padding-bottom: 10px;
+
+        /* New section styles */
+        .form-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .form-section:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+
+        .section-header {
+            margin-bottom: 20px;
             color: #d4af37;
+            font-size: 1.2rem;
+            font-weight: bold;
         }
-        
-        form {
-            margin-top: 20px;
+
+        /* Form element styles */
+        .question {
+            margin-bottom: 25px;
         }
-        
+
         label {
             display: block;
             margin-top: 20px;
             color: #d4af37;
+            font-weight: 500;
         }
-        
-        input, textarea {
+
+        input, textarea, select {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             margin-top: 5px;
             background-color: rgba(255, 255, 255, 0.1);
             border: 1px solid #333;
             color: #fff;
             border-radius: 4px;
+            transition: all 0.3s ease;
         }
-        
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            margin-left: 8px;
+            color: #d4af37;
+            cursor: help;
+        }
+
+        .tooltip:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            left: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(212, 175, 55, 0.9);
+            color: #121212;
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            width: max-content;
+            max-width: 200px;
+            z-index: 1;
+        }
+
+        /* Contact info styles */
+        .contact-info {
+            margin-top: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .next-steps {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 8px;
+        }
+
+        .next-steps h3 {
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+
+        .next-steps ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .next-steps li {
+            margin-bottom: 10px;
+        }
+
         button {
             background-color: #d4af37;
             color: #121212;
             border: none;
-            padding: 10px 20px;
+            padding: 12px 24px;
             margin-top: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -118,44 +197,30 @@
             letter-spacing: 2px;
             border-radius: 30px;
             text-transform: uppercase;
+            width: auto;
+            display: block;
+            margin: 30px auto;
         }
-        
+
         button:hover {
             background-color: #fff;
             box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
         }
-        
-        .contact-info {
-            margin-top: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 5px;
-        }
-        
-        .contact-info h3 {
-            color: #d4af37;
+
+        .privacy-notice {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
             margin-top: 20px;
-            margin-bottom: 5px;
-        }
-        
-        .copyright {
-            font-size: 0.8rem;
-            opacity: 0.7;
-            position: absolute;
-            bottom: 10px;
-            left: 0;
-            right: 0;
-            text-align: center;
+            padding: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         @media (max-width: 768px) {
             h1 { font-size: 2rem; }
-            nav ul li {
-                margin-left: 10px;
-            }
-            nav ul li a {
-                font-size: 0.9rem;
-                padding: 3px 6px;
+            .tooltip:hover::after {
+                left: 50%;
+                top: 100%;
+                transform: translateX(-50%);
             }
         }
     </style>
@@ -165,32 +230,26 @@
     <script type="text/javascript">
         (function() {
             emailjs.init({
-              publicKey: "6gRzC-vfOkEDtTY0k",  // Replace with your actual public key
+              publicKey: "6gRzC-vfOkEDtTY0k",
             });
         })();
     </script>
 
-    <!-- JavaScript for sending the form data using EmailJS -->
     <script type="text/javascript">
         window.onload = function() {
             document.getElementById('contact-form').addEventListener('submit', function(event) {
-                event.preventDefault();  // Prevent form submission from reloading the page
+                event.preventDefault();
 
-        // Use your EmailJS Service ID and Template ID here
                 emailjs.sendForm('service_idipupf', 'template_w9fwd4j', this)
                     .then(function() {
-                        console.log('SUCCESS!');
-                        document.getElementById('statusMessage').innerHTML = '<p style="color:green;">Message sent successfully!</p>';
-                        document.getElementById('contact-form').reset();  // Reset the form after submission
+                        document.getElementById('statusMessage').innerHTML = '<p style="color: #90EE90;">Message sent successfully! We will respond within 1-2 business days.</p>';
+                        document.getElementById('contact-form').reset();
                     }, function(error) {
-                        console.log('FAILED...', error);
-                        document.getElementById('statusMessage').innerHTML = '<p style="color:red;">Failed to send message. Please try again later.</p>';
+                        document.getElementById('statusMessage').innerHTML = '<p style="color: #FFB6C1;">Failed to send message. Please try again later.</p>';
                     });
             });
-
         };
     </script>
-    
 </head>
 
 <body>
@@ -205,20 +264,75 @@
         </nav>
         <div class="content">
             <h1>Presto Piano Studio</h1>
-            <h2>Contact Us</h2>
-            <p>We'd love to hear from you! Whether you're interested in lessons or have any questions, please don't hesitate to get in touch.</p>
+            <h2 style="text-align: center; color: #d4af37;">Contact Us</h2>
+            <p style="text-align: center;">Thank you for your interest in Presto Piano Studio! To help us determine if we're the right fit, please complete the following questionnaire:</p>
             
             <form id="contact-form">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-                
-                <button type="submit">Send Message</button>
+                <div class="form-section">
+                    <div class="section-header">
+                        Student Information
+                    </div>
+                    <div class="question">
+                        <label for="student-info">1. What is the student's name and age?</label>
+                        <input type="text" id="student-info" name="student-info" required placeholder="e.g., John Smith, 12 years old">
+                    </div>
+
+                    <div class="question">
+                        <label for="neighborhood">2. Which neighborhood do you live in?</label>
+                        <input type="text" id="neighborhood" name="neighborhood" required placeholder="e.g., Highland Park, Shadyside">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <div class="section-header">
+                        Musical Background
+                    </div>
+                    <div class="question">
+                        <label for="musical-background">3. Does the student have any prior piano or music experience outside of school? If yes, please provide details.</label>
+                        <textarea id="musical-background" name="musical-background" rows="3" required placeholder="e.g., 2 years of piano lessons, school band experience"></textarea>
+                    </div>
+
+                    <div class="question">
+                        <label for="instrument">4. What brand and type of piano or keyboard do you currently own (e.g., Yamaha U1 upright)? If you do not own one, are you willing to purchase a piano for practice?</label>
+                        <textarea id="instrument" name="instrument" rows="3" required></textarea>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <div class="section-header">
+                        Goals & Commitment
+                    </div>
+                    <div class="question">
+                        <label for="goals">5. What are your long-term goals for the student's piano education?</label>
+                        <textarea id="goals" name="goals" rows="3" required placeholder="e.g., Learn classical repertoire, play for enjoyment, prepare for examinations"></textarea>
+                    </div>
+
+                    <div class="question">
+                        <label for="practice-commitment">6. Does the student have at least 30 minutes available daily for practice to ensure consistent progress?</label>
+                        <textarea id="practice-commitment" name="practice-commitment" rows="2" required></textarea>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <div class="section-header">
+                        Contact Information
+                    </div>
+                    <div class="question">
+                        <label for="email">Your Email Address:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="question">
+                        <label for="phone">Your Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="(412) XXX-XXXX">
+                    </div>
+                </div>
+
+                <div class="required-note">
+                    <p><em>Please note: An interview is required for all prospective students to assess their suitability for long-term success at Presto Piano Studio.</em></p>
+                </div>
+
+                <button type="submit">Submit Inquiry</button>
             </form>
             
             <div id="statusMessage"></div>
@@ -232,6 +346,10 @@
                 
                 <h3>Phone</h3>
                 <p>(412) 251-7219</p>
+            </div>
+
+            <div class="privacy-notice">
+                <p>Your privacy is important to us. Information submitted through this form will be used solely for the purpose of evaluating potential student placement and will not be shared with third parties.</p>
             </div>
         </div>
         <div class="copyright">© 2024 Presto Piano Studio, LLC. All rights reserved.</div>
